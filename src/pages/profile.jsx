@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../App';
+import Layout from '../components/shared/Layout';
+import Context from '../context';
 
-const profile = () => {
+const Profile = () => {
+    const { me, currentUserId } = useContext(Context);
     return (
-        <div>
+        <Layout>
             <h2>Profile Page...</h2>
-        </div>
+            User: {currentUserId}
+        </Layout>
     )
 }
 
-export default profile;
+export default Profile;

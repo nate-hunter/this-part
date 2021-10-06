@@ -1,6 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
+import { UserContext } from '../../App';
 import { AuthContext } from '../../auth';
+import Context from '../../context';
 import './shared.css';
 
 
@@ -13,11 +15,12 @@ import './shared.css';
 */
 const TopBar = () => {
     const { signOut } = useContext(AuthContext);
+    const { me } = useContext(Context);
     const history = useHistory();
-    let user = 'test panda';
+    let user = me;
+    console.log(user)
 
     const handleLogout = () => {
-        console.log('handle logout in topbar');
         setTimeout(() => {
             signOut();
             history.push('/accounts/login')
@@ -49,7 +52,10 @@ const TopBar = () => {
                     {user ? (
                         <>
                             <span className='topBarAuthItem' onClick={handleLogout}>Logout</span>
-                            <span className='topBarAuthItem'>{user}'s avatar</span>
+                            <Link to={`/${user.username}`} className='link'>
+                                <span className='topBarAuthItem'>{user.username}</span>
+                            </Link>
+                            {/* <span className='topBarAuthItem'>{user.username}'s avatar</span> */}
                         </>
                     ) :
                         <>

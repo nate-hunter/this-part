@@ -101,13 +101,10 @@ const AuthProvider = ({ children }) => {
         setAuthState({ status: "loading" });
         await firebase.auth().signOut();
         setAuthState({ status: "out" });
-
     };
 
     const loginWithEmailAndPassword = async (email, password) => {
-        console.log('form data to log in with:', email);
         const user = await firebase.auth().signInWithEmailAndPassword(email, password);
-        console.log('user logged in?', user);
         return user;
     }
 
