@@ -7,7 +7,7 @@ import { CREATE_USER } from "./graphql/mutations";
 
 
 /* Code from:  https://github.com/hasura/graphql-engine/blob/master/community/sample-apps/firebase-jwt/app/main.js
- * Adjusted to be used as a 'Provider' to pass auth data using 'Context'
+ * Adjusted to be used as a 'Provider' (AuthProvider) to pass auth data using 'Context'
  * Error handling removed b/c will be taken care of in 'signup' and 'login' pages
 */
 
@@ -60,8 +60,22 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     const signInWithGoogle = async () => {
-        await firebase.auth().signInWithPopup(provider);
+        const userData = await firebase.auth().signInWithPopup(provider);
 
+        if (userData.additionalUserInfo.isNewUser) {
+            const username = `${userData.user.displayName.replace(/\s+/g, "")}${userData.user.uid.slice(-5)}`;
+
+            const variables = {
+                userId: userData.user.uid,
+                fullname: userData.user.displayName,
+                username,
+                email: userData.user.email,
+                bio: '',
+                website: '',
+                avatar: userData.user.photoURL
+            }
+            await CreateUser({ variables });
+        }
     };
 
     const signUpWithEmailAndPassword = async formData => {
@@ -79,7 +93,7 @@ const AuthProvider = ({ children }) => {
                 website: '',
                 avatar: defaultUserImage
             }
-            CreateUser({ variables });
+            await CreateUser({ variables });
         }
     }
 
@@ -90,6 +104,13 @@ const AuthProvider = ({ children }) => {
 
     };
 
+    const loginWithEmailAndPassword = async (email, password) => {
+        console.log('form data to log in with:', email);
+        const user = await firebase.auth().signInWithEmailAndPassword(email, password);
+        console.log('user logged in?', user);
+        return user;
+    }
+
     if (authState.status === 'loading') {
         return null;
     } else {
@@ -98,7 +119,8 @@ const AuthProvider = ({ children }) => {
                 authState,
                 signInWithGoogle,
                 signUpWithEmailAndPassword,
-                signOut
+                signOut,
+                loginWithEmailAndPassword
             }}>
                 {children}
             </AuthContext.Provider>

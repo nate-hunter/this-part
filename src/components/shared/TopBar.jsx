@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { AuthContext } from '../../auth';
 import './shared.css';
 
 
@@ -11,11 +12,16 @@ import './shared.css';
     - Notifications  (if/when Notifications are set up)
 */
 const TopBar = () => {
-
+    const { signOut } = useContext(AuthContext);
+    const history = useHistory();
     let user = 'test panda';
 
     const handleLogout = () => {
-        console.log('handle logout in topbar')
+        console.log('handle logout in topbar');
+        setTimeout(() => {
+            signOut();
+            history.push('/accounts/login')
+        }, 100);
     }
 
     return (

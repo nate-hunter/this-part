@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Switch, Route, useHistory, useLocation } from 'react-router-dom';
+import { Switch, Route, useHistory, useLocation, Redirect } from 'react-router-dom';
 import './App.css';
 import { AuthContext } from './auth';
 
@@ -7,7 +7,7 @@ import About from './pages/about.jsx';
 import editProfile from './pages/editProfile.jsx';
 import gallery from './pages/gallery.jsx';
 import landing from './pages/landing.jsx';
-import login from './pages/login.jsx';
+import Login from './pages/login.jsx';
 import map from './pages/map.jsx';
 import notFound from './pages/notFound.jsx';
 import post from './pages/post.jsx';
@@ -18,10 +18,21 @@ import SignUp from './pages/signUp.jsx';
 
 function App() {
   const { authState } = useContext(AuthContext);
-  console.log('auth state:', authState);
+  const isAuth = authState.status === 'in';
 
   const history = useHistory();
   const location = useLocation();
+
+  console.log('is auth:', isAuth);
+  if (!isAuth) {
+    return (
+      <Switch>
+        <Route path='/accounts/login' component={Login} />
+        <Route path='/accounts/signup' component={SignUp} />
+        <Redirect to='/accounts/login' />
+      </Switch>
+    )
+  }
 
   return (
     <>
@@ -33,8 +44,8 @@ function App() {
         <Route exact path='/:username' component={profile} />
         <Route exact path='/p/:postId' component={post} />
         <Route path='/accounts/edit' component={editProfile} />
-        <Route path='/accounts/login' component={login} />
-        <Route path='/accounts/signup' component={SignUp} />
+        <Route path='/accounts/login' component={Login} />
+        {/* <Route path='/accounts/signup' component={SignUp} /> */}
         <Route path='*' component={notFound} />
       </Switch>
     </>

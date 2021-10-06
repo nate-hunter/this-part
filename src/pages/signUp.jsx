@@ -3,6 +3,11 @@ import { Link, useHistory } from 'react-router-dom';
 import { AuthContext } from '../auth';
 import SEO from '../components/shared/Seo';
 
+/*
+ * Set up form validation
+ * Handle duplicate usernames in Hasura DB 
+ */
+
 const SignUp = () => {
 
     const { authState, signInWithGoogle, signUpWithEmailAndPassword } = useContext(AuthContext);
@@ -12,6 +17,7 @@ const SignUp = () => {
         email: '',
         password: ''
     });
+    const [errorMsg, setErrorMsg] = useState('');
     const history = useHistory();
 
     const handleChange = e => {
@@ -19,15 +25,19 @@ const SignUp = () => {
         setUserValues(prev => ({
             ...prev,
             [name]: value
-        }))
+        }));
     }
 
     const handleSubmit = async e => {
         e.preventDefault();
         console.log('user to create?', userValues);
 
-        await signUpWithEmailAndPassword(userValues);
-        history.push('/');
+        try {
+            await signUpWithEmailAndPassword(userValues);
+            history.push('/');
+        } catch (error) {
+            setErrorMsg(error.message);
+        }
     }
 
     return (
@@ -55,6 +65,7 @@ const SignUp = () => {
                     </div>
                     <button className='loginBtn'>Signup</button>
                 </form>
+                {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
                 <p>- or -</p>
                 <button type="submit" className='signupBtn'>Signup w/Google</button>
 
