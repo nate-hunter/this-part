@@ -18,7 +18,7 @@ const TopBar = () => {
     const { me } = useContext(Context);
     const history = useHistory();
     let user = me;
-    console.log(user)
+    // console.log(user)
 
     const handleLogout = () => {
         setTimeout(() => {

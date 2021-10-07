@@ -12,7 +12,7 @@ import editProfile from './pages/editProfile.jsx';
 import gallery from './pages/gallery.jsx';
 import landing from './pages/landing.jsx';
 import Login from './pages/login.jsx';
-import Map from './pages/map.jsx';
+import MapPage from './pages/map.jsx';
 import notFound from './pages/notFound.jsx';
 import post from './pages/post.jsx';
 import Profile from './pages/profile.jsx';
@@ -28,7 +28,7 @@ function App() {
 
   const { authState } = useContext(AuthContext);
   const initialState = useContext(Context);
-  console.log(initialState)
+  // console.log(initialState)
   const isAuth = authState.status === 'in';
   const userId = isAuth ? authState.user.uid : null;
   const { data, loading } = useSubscription(ME, { variables: { userId } });
@@ -50,7 +50,7 @@ function App() {
       <Switch>
         <Route exact path="/" component={landing} />
         <Route path="/gallery" component={gallery} />
-        <Route path='/map' component={Map} />
+        <Route path='/map' component={MapPage} />
         <Route path='/about' component={About} />
         <Route exact path='/:username' component={Profile} />
         <Route exact path='/p/:postId' component={post} />
