@@ -67,13 +67,12 @@ const SignUp = () => {
                 </form>
                 {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
                 <p>- or -</p>
-                <button type="submit" className='signupBtn'>Signup w/Google</button>
+                <button type="submit" className='loginGoogleBtn'>Signup w/Google</button>
 
-                <div>
-                    <p>------------------------</p>
-                    <p>Already signed up?</p>
+                <div className="bot-container">
+                    <span className="bot-text">Already signed up?</span>
                     <Link to='/accounts/login'>
-                        <button className='loginGoogleBtn'>Login</button>
+                        <button className='signupBtn'>Login</button>
                     </Link>
                 </div>
             </div>

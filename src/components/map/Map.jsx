@@ -1,6 +1,7 @@
 import { Circle } from '@mui/icons-material';
 import React, { useEffect, useState } from 'react';
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl';
+// import { formatDate}
 
 import './map.css';
 import Layout from '../shared/Layout';
@@ -28,9 +29,14 @@ const Map = () => {
     const { data, loading, error } = useQuery(GET_ALL_POSTS);
 
     useEffect(() => {
-        setPosts(data.posts);
+        try {
+            setPosts(data.posts);
+        } catch (error) {
+            console.error('Error getting posts\n', error)
+        }
+
     }, [])
-    console.log('posts?', posts)
+    // console.log('posts?', data)
 
 
 
@@ -56,7 +62,7 @@ const Map = () => {
                     />
                 </div>
 
-                {posts && posts.map(post => (  // I might make this into its own component...
+                {data && posts.map(post => (  // I might make this into its own component...
                     <>
                         {console.log('post:', post)}
                         <Marker
@@ -67,7 +73,27 @@ const Map = () => {
                             <MapIcon color='slateblue' size={15} />
                         </Marker>
 
+                        {post.id === currentPlaceId && (<Popup
+                            anchor="right"
+                            latitude={40.730824}
+                            longitude={-73.997330}
+                            closeButton={true}
+                            closeOnClick={false}
+                            onClose={() => setPopup(null)}
+                        >
+                            <div className="popup-card">
+                                {/* <img src="" alt="" /> */}
+                                <label>Title</label>
+                                <h4 className="popup-item">{post.title}</h4>
+                                <label>Location</label>
+                                <h4 className="popup-item">{post.area}</h4>
+                                <label>Description</label>
+                                <p className="popup-descr">{post.content}</p>
+                                <span className="username">Created by <b>{post.username}</b></span>
+                                <span className="date-created">{post.created_at}</span>
+                            </div>
 
+                        </Popup>)}
                     </>
                 ))}
 

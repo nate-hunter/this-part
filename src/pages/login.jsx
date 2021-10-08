@@ -77,14 +77,14 @@ const Login = () => {
                     <button type='submit' className='loginBtn'>Login</button>
                 </form>
                 {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
+
                 <p>- or -</p>
 
                 <button className='loginGoogleBtn' onClick={handleGoogleLogin}>Login w/Google</button>
                 {errorMsgGoogle && <p style={{ color: 'red' }}>{errorMsgGoogle}</p>}
 
-                <div>
-                    <p>------------------------</p>
-                    <p>Not signed up?</p>
+                <div className="bot-container">
+                    <span className="bot-text">Not signed up?</span>
                     <Link to='/accounts/signup'>
                         <button className='signupBtn'>Sign Up</button>
                     </Link>

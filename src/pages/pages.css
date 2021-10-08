@@ -1,11 +1,12 @@
 .formContainer {
   /* margin-left: 25%; */
-  margin: 60px 0 0 25%;
+  /* margin: 60px 0 0 25%; */
   /* width: 100%; */
-  /* display: flex; */
-  /* justify-content: center; */
-  /* align-items: center; */
-  /* text-align: center; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
 }
 
 .formTitle {
@@ -15,7 +16,9 @@
 
 .form {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .formItem {
@@ -49,6 +52,7 @@
   border-radius: 10px;
   margin-top: 30px;
   cursor: pointer;
+  align-self: center;
 }
 
 .loginGoogleBtn {
@@ -58,7 +62,6 @@
   color: white;
   padding: 7px 10px;
   border-radius: 10px;
-  margin-top: 30px;
   cursor: pointer;
 }
 
@@ -71,4 +74,19 @@
   border-radius: 10px;
   margin-top: 30px;
   cursor: pointer;
+}
+
+.bot-container {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 150px;
+  margin-top: 40px;
+  border-top: 0.5px solid;
+}
+
+.bot-text {
+  margin-top: 30px;
 }
