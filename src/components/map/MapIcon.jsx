@@ -4,7 +4,7 @@ import React from 'react';
 
 const MapIcon = ({ size, color, onClick }) => {
     // <CircleIcon onClick={onClick} />
-    return <Circle style={{ color, fontSize: size }} />
+    return <Circle style={{ color, fontSize: size, cursor: 'pointer' }} onClick={onClick} />
 
 }
 

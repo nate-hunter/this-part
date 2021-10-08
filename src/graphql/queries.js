@@ -20,6 +20,7 @@ export const GET_ALL_POSTS = gql`
             lon
             title
             user {
+                id
                 avatar
                 username
             }

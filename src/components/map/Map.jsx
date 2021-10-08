@@ -1,13 +1,14 @@
 import { Circle } from '@mui/icons-material';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl';
-// import { formatDate}
+import { format } from 'timeago.js';
 
 import './map.css';
 import Layout from '../shared/Layout';
 import MapIcon from './MapIcon';
 import { useQuery } from '@apollo/client';
 import { GET_ALL_POSTS } from '../../graphql/queries';
+import Context from '../../context';
 
 
 const INITIAL_VIEWPORT = {
@@ -19,9 +20,11 @@ const INITIAL_VIEWPORT = {
 
 
 const Map = () => {
+    const { currentUserId } = useContext(Context);
+    console.log(currentUserId);
     const [viewport, setViewport] = useState(INITIAL_VIEWPORT);
-    const [userPosition, setUserPosition] = useState(null);
-    const [popup, setPopup] = useState(null);
+    // const [userPosition, setUserPosition] = useState(null);
+    // const [popup, setPopup] = useState(null);
     const [posts, setPosts] = useState([]);
     const [currentPlaceId, setCurrentPlaceId] = useState(null);
 
@@ -39,10 +42,18 @@ const Map = () => {
     }, [loading])
 
     if (loading) return <h3>Map is loading...</h3>; // Use a LoadingPage here
+    if (error) return <h3>There is an error loading the map...</h3>
 
 
     const handleMapClick = ({ lngLat, leftButton }) => {
         console.log('map clicked', leftButton, lngLat)
+    }
+
+    const handleMarkerClick = ({ id, lat, lon }) => {
+        setCurrentPlaceId(id);
+        setViewport({ ...viewport, latitude: lat, longitude: lon })
+        console.log('marker clicked', id, lat, lon)
+
     }
 
     return (
@@ -65,22 +76,27 @@ const Map = () => {
 
                 {data && posts.map(post => (  // I might make this into its own component...
                     <>
-                        {/* {console.log('post:', post)} */}
+                        {console.log('post:', post.user)}
                         <Marker
                             key={post.id}
                             latitude={post.lat}
                             longitude={post.lon}
+
                         >
-                            <MapIcon color='slateblue' size={15} />
+                            <MapIcon
+                                onClick={() => handleMarkerClick(post)}
+                                color={currentUserId === post.user.id ? 'slateblue' : 'lightseagreen'}
+                                size={15}
+                            />
                         </Marker>
 
                         {post.id === currentPlaceId && (<Popup
                             anchor="right"
-                            latitude={40.730824}
-                            longitude={-73.997330}
+                            latitude={post.lat}
+                            longitude={post.lon}
                             closeButton={true}
                             closeOnClick={false}
-                            onClose={() => setPopup(null)}
+                            onClose={() => setCurrentPlaceId(null)}
                         >
                             <div className="popup-card">
                                 {/* <img src="" alt="" /> */}
@@ -90,8 +106,8 @@ const Map = () => {
                                 <h4 className="popup-item">{post.area}</h4>
                                 <label>Description</label>
                                 <p className="popup-descr">{post.content}</p>
-                                <span className="username">Created by <b>{post.username}</b></span>
-                                <span className="date-created">{post.created_at}</span>
+                                <span className="username">Created by <b>{post.user.username}</b></span>
+                                <span className="date-created">{format(post.created_at)}</span>
                             </div>
 
                         </Popup>)}
