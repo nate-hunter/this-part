@@ -23,21 +23,22 @@ const Map = () => {
     const [userPosition, setUserPosition] = useState(null);
     const [popup, setPopup] = useState(null);
     const [posts, setPosts] = useState([]);
-    const [currentPlaceId, setCurrentPlaceId] = useState(null)
+    const [currentPlaceId, setCurrentPlaceId] = useState(null);
 
 
     const { data, loading, error } = useQuery(GET_ALL_POSTS);
 
+
     useEffect(() => {
         try {
-            setPosts(data.posts);
+            if (!loading) setPosts(data.posts);
         } catch (error) {
             console.error('Error getting posts\n', error)
         }
 
-    }, [])
-    // console.log('posts?', data)
+    }, [loading])
 
+    if (loading) return <h3>Map is loading...</h3>; // Use a LoadingPage here
 
 
     const handleMapClick = ({ lngLat, leftButton }) => {
@@ -64,7 +65,7 @@ const Map = () => {
 
                 {data && posts.map(post => (  // I might make this into its own component...
                     <>
-                        {console.log('post:', post)}
+                        {/* {console.log('post:', post)} */}
                         <Marker
                             key={post.id}
                             latitude={post.lat}
