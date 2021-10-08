@@ -1,8 +1,12 @@
 import { Circle } from '@mui/icons-material';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl';
+
+import './map.css';
 import Layout from '../shared/Layout';
 import MapIcon from './MapIcon';
+import { useQuery } from '@apollo/client';
+import { GET_ALL_POSTS } from '../../graphql/queries';
 
 
 const INITIAL_VIEWPORT = {
@@ -17,6 +21,18 @@ const Map = () => {
     const [viewport, setViewport] = useState(INITIAL_VIEWPORT);
     const [userPosition, setUserPosition] = useState(null);
     const [popup, setPopup] = useState(null);
+    const [posts, setPosts] = useState([]);
+    const [currentPlaceId, setCurrentPlaceId] = useState(null)
+
+
+    const { data, loading, error } = useQuery(GET_ALL_POSTS);
+
+    useEffect(() => {
+        setPosts(data.posts);
+    }, [])
+    console.log('posts?', posts)
+
+
 
     const handleMapClick = ({ lngLat, leftButton }) => {
         console.log('map clicked', leftButton, lngLat)
@@ -40,55 +56,21 @@ const Map = () => {
                     />
                 </div>
 
-                <Marker
-                    latitude={40.730824}
-                    longitude={-73.997330}
-                >
-                    {/* <MapIcon /> */}
-                    <Circle />
-                </Marker>
+                {posts && posts.map(post => (  // I might make this into its own component...
+                    <>
+                        {console.log('post:', post)}
+                        <Marker
+                            key={post.id}
+                            latitude={post.lat}
+                            longitude={post.lon}
+                        >
+                            <MapIcon color='slateblue' size={15} />
+                        </Marker>
 
-                {/* User Baloon */}
-                {/* {userPosition && (
-                    <Marker
-                        latitude={userPosition.latitude}
-                        longitude={userPosition.longitude}
-                        offsetLeft={-19}
-                        offsetTop={-37}
-                    >
-                        <MapIcon size={50} color="#008E7C"  />
-                    </Marker>
-                )} */}
 
-                {/* Draft Baloon  */}
-                {/* {state.draft && (
-                    <Marker
-                        latitude={state.draft.latitude}
-                        longitude={state.draft.longitude}
-                        offsetLeft={-19}
-                        offsetTop={-37}
-                    >
-                        <Baloon size={50} color="grey" />
-                    </Marker>
+                    </>
+                ))}
 
-                )} */}
-
-                {/* Previously added Posts  */}
-                {/* {state.posts.map(post => (
-                    <Marker
-                        key={post._id}
-                        latitude={post.lat}
-                        longitude={post.lon}
-                        offsetLeft={-19}
-                        offsetTop={-37}
-                    >
-                        <Baloon
-                            onClick={() => handleSelectPost(post)}
-                            size={50}
-                            color={highlightNewPost(post)}
-                        />
-                    </Marker>
-                ))} */}
 
 
             </ReactMapGL>

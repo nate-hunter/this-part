@@ -1,0 +1,24 @@
+.popup-card {
+  width: 250px;
+  height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+label {
+  width: max-content;
+  color: slateblue;
+  font-size: 13px;
+  border-bottom: 0.5px solid slateblue;
+  margin: 3px 0;
+}
+
+.popup-descr,
+.username {
+  font-size: 14px;
+}
+
+.date-created {
+  font-size: 12px;
+}
