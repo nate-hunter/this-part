@@ -9,9 +9,10 @@
 label {
   width: max-content;
   color: slateblue;
-  font-size: 13px;
+  font-size: 16px;
   border-bottom: 0.5px solid slateblue;
   margin: 3px 0;
+  font-weight: bold;
 }
 
 .popup-descr,
@@ -21,4 +22,56 @@ label {
 
 .date-created {
   font-size: 12px;
+}
+
+.new-post-form {
+  width: 250px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.new-post-form > label {
+  border-bottom: 0.5px solid lightseagreen;
+  align-self: center;
+}
+
+input,
+textarea {
+  font-family: monospace;
+  border: none;
+  border-bottom: 0.5px solid lightseagreen;
+  color: slateblue;
+}
+
+input::placeholder,
+textarea::placeholder {
+  font-size: 12px;
+  font-style: oblique;
+  /* color: lightseagreen; */
+  color: #008e7c;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  outline: none;
+  /* color: rgb(138, 185, 182); */
+  color: #0488dd;
+  color: lightseagreen;
+}
+
+.add-post-btn {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  color: white;
+  background-color: slateblue;
+  cursor: pointer;
 }

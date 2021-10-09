@@ -10,7 +10,15 @@ export const CREATE_USER = gql`
 `;
 
 export const CREATE_POST = gql`
-    mutation CreatePost ($img: String!, $lat: numeric!, $lon: numeric!, $title: String!, $area: String, $content: String!, $userId: uuid!) {
+    mutation CreatePost (
+        $img: String!, 
+        $lat: numeric!, 
+        $lon: numeric!, 
+        $title: String!, 
+        $area: String, 
+        $content: String!, 
+        $userId: uuid!
+    ) {
         insert_posts(objects: {img: $img, lat: $lat, lon: $lon, title: $title, area: $area, content: $content, user_id: $userId}) {
             returning {
                 area
