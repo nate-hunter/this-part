@@ -1,6 +1,8 @@
 import { Circle } from '@mui/icons-material';
 import React, { useContext, useEffect, useState } from 'react';
 import ReactMapGL, { NavigationControl, Marker, Popup } from 'react-map-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+import mapboxgl from 'mapbox-gl';
 import { format } from 'timeago.js';
 
 import './map.css';
@@ -20,6 +22,8 @@ const INITIAL_VIEWPORT = {
     zoom: 12
 }
 
+// eslint-disable-next-line import/no-webpack-loader-syntax
+mapboxgl.workerClass = require('worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker').default;
 
 const Map = () => {
     const { currentUserId } = useContext(Context);
