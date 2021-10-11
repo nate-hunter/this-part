@@ -1,9 +1,16 @@
 .popup-card {
   width: 250px;
-  height: 250px;
+  /* height: 250px; */
+  height: 32em;
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+.popup-img {
+  /* padding: 0.2em; */
+  height: 200px;
+  object-fit: contain;
 }
 
 label {

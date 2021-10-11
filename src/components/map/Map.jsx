@@ -118,7 +118,7 @@ const Map = () => {
                 onViewportChange={newViewport => setViewport(newViewport)}
                 onDblClick={handleAddNewPostClick}
                 doubleClickZoom={false}
-                transitionDuration={5000}
+                transitionDuration={1000}
                 // scrollZoom={!mobileSize}
                 {...viewport}
             >
@@ -138,7 +138,7 @@ const Map = () => {
                         >
                             <MapIcon
                                 onClick={() => handleMarkerClick(post)}
-                                color={currentUserId === post.user.id ? 'slateblue' : 'lightseagreen'}
+                                color={currentUserId === post.user.id ? 'lightseagreen' : 'slateblue'}
                                 size={15}
                             />
                         </Marker>
@@ -152,7 +152,8 @@ const Map = () => {
                             onClose={() => setCurrentPlaceId(null)}
                         >
                             <div className="popup-card">
-                                {/* <img src="" alt="" /> */}
+                                <img className="popup-img" src={post.img} alt="post" />
+                                <br />
                                 <label>Title</label>
                                 <h4 className="popup-item">{post.title}</h4>
                                 <label>Location</label>
@@ -176,7 +177,7 @@ const Map = () => {
                         >
                             <MapIcon
                                 // onClick={() => handleMarkerClick(post)}
-                                color={'#0488dd'}
+                                color={'lightseagreen'}
                                 size={15}
                             />
                         </Marker>

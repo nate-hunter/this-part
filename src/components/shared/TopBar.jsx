@@ -44,16 +44,16 @@ const TopBar = () => {
                         <span className='topBarItem'>About</span>
                     </Link>
                 </div>
-                <div className="topCenter">
-                    {/* <span className="header-sub-txt">( kēia version )</span> */}
-                    <span className="header-sub-txt">[ <em>sandbox</em> ]</span>
-                </div>
+                {/* <div className="topCenter"> */}
+                {/* <span className="header-sub-txt">( kēia version )</span> */}
+                {/* <span className="header-sub-txt">[ <em>sandbox</em> ]</span> */}
+                {/* </div> */}
                 <div className="topRight">
                     {user ? (
                         <>
                             <span className='topBarAuthItem' onClick={handleLogout}>Logout</span>
                             <Link to={`/${user.username}`} className='link'>
-                                <span className='topBarAuthItem'>{user.username}</span>
+                                <span className='topBarAuthItem user-in'>{user.username}</span>
                             </Link>
                             {/* <span className='topBarAuthItem'>{user.username}'s avatar</span> */}
                         </>

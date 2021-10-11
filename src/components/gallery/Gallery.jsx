@@ -8,6 +8,8 @@ const Gallery = () => {
     const { data, loading, error } = useQuery(GET_ALL_POSTS);
     // I'm thinking of making a specific query for the Gallery...
 
+    if (loading) return <h3>Gallery loading...</h3>
+
     const showPosts = data.posts.map(post => {
         return (
             <div>
