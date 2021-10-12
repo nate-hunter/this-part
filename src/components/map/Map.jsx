@@ -112,7 +112,7 @@ const Map = () => {
         <>
             <ReactMapGL
                 width="100vw"
-                height="calc(100vh - 64px)"
+                height="100vh"
                 mapStyle="mapbox://styles/mapbox/light-v10"
                 mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_TOKEN}
                 onViewportChange={newViewport => setViewport(newViewport)}
@@ -152,10 +152,10 @@ const Map = () => {
                             onClose={() => setCurrentPlaceId(null)}
                         >
                             <div className="popup-card">
+                                {/* <label>Title</label> */}
+                                <h1 className="popup-item-title">{post.title}</h1>
+                                {/* <br /> */}
                                 <img className="popup-img" src={post.img} alt="post" />
-                                <br />
-                                <label>Title</label>
-                                <h4 className="popup-item">{post.title}</h4>
                                 <label>Location</label>
                                 <h4 className="popup-item">{post.area}</h4>
                                 <label>Description</label>

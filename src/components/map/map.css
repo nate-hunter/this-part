@@ -7,6 +7,12 @@
   justify-content: center;
 }
 
+.popup-item-title {
+  color: slateblue;
+  font-size: 25px;
+  align-self: center;
+}
+
 .popup-img {
   /* padding: 0.2em; */
   height: 200px;
