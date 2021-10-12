@@ -3,6 +3,7 @@ import React from 'react';
 import { GET_ALL_POSTS } from '../../graphql/queries';
 
 import './gallery.css'
+import GalleryPost from './GalleryPost';
 
 const Gallery = () => {
     const { data, loading, error } = useQuery(GET_ALL_POSTS);
@@ -10,16 +11,16 @@ const Gallery = () => {
 
     if (loading) return <h3>Gallery loading...</h3>
 
-    const showPosts = data.posts.map(post => {
-        return (
-            <div>
-                <img style={{ maxHeight: 100 }} src={post.img} alt="post-img" />
-            </div>
-        )
-    })
+
+    const galleryPosts = data.posts.map(post => (
+        <GalleryPost key={post.id} post={post} />
+    ));
+
     return (
-        <div>
-            {showPosts}
+        <div className='gallery'>
+            <div className="postContainer">
+                {galleryPosts}
+            </div>
         </div>
     )
 }

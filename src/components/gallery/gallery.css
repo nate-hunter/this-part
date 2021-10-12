@@ -1,0 +1,23 @@
+.gallery {
+  display: grid;
+  grid-template-columns: minmax(auto, 935px);
+  width: 100vw;
+}
+
+.postContainer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20;
+  /* background-color: whitesmoke; */
+}
+
+.galleryPostContainer {
+  position: relative;
+}
+
+.image {
+  max-width: 95%;
+  /* max-height: 300px; */
+  user-select: none;
+  margin: 2px;
+}
