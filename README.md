@@ -17,6 +17,11 @@
 
 ### Notes:
 
+- GraphQL Backend using [Hasura Cloud](https://hasura.io/)
+- [React](https://reactjs.org/) used on the Frontend w/some plain 'ol CSS.
+- [Mapbox](https://www.mapbox.com/) used for the map.
+- [Firebase](https://firebase.google.com/) used to authenticate and store users.
+
 - Deployed w/[Vercel](https://vercel.com/)
 - Deployed Site: [this pArt](https://this-part-demo.vercel.app/)
 
