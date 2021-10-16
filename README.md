@@ -1,17 +1,23 @@
 # this pArt
 
 An app for users to share public art with the community
-An app to bring awareness to Art Education programs and recognize artists for their work.
-(Donations may be accepted)
+An app to (eventually) bring awareness to Art Education programs and recognize artists for their work.
+(Donations may be accepted is a thought I'm considering)
 
-- An unathenticated User can view Photos on a map and in a gallery.
+#### For Now:
+
 - An authenticated User can create a Post of Photos on a map.
-- An authenticated User can Comment, "React", and (maybe) Rate a Post.
+- An authenticated User can view Photos on a map and in a gallery.
+
+#### For Future:
+
+- An unauthenticated User can view Photos on a map and in a gallery.
+- An authenticated User can Comment, "React", and (considering) Rate a Post.
 - Users may be able to assign or suggest artists and provide links to their social media accounts
 
 ### Notes:
 
-- To deploy: $ vercel --prod
+- Deployed w/[Vercel](https://vercel.com/)
 - Deployed Site: [this pArt](https://this-part-demo.vercel.app/)
 
 ### (Invaluable) Resouces:
