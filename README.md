@@ -1,8 +1,8 @@
 # this pArt
 
-An app for users to share public art with the community
-An app to (eventually) bring awareness to Art Education programs and recognize artists for their work.
-(Donations may be accepted is a thought I'm considering)
+- An app for users to share public art with the community
+- An app to (eventually) bring awareness to Art Education programs and recognize artists for their work.
+  (Donations may be accepted is a thought I'm considering)
 
 #### For Now:
 
