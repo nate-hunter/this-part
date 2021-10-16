@@ -20,7 +20,7 @@ An app to (eventually) bring awareness to Art Education programs and recognize a
 - Deployed w/[Vercel](https://vercel.com/)
 - Deployed Site: [this pArt](https://this-part-demo.vercel.app/)
 
-### (Invaluable) Resouces:
+### Resouces:
 
 - [Google](https://www.google.com/)
 - [StackOverflow](https://stackoverflow.com/)
