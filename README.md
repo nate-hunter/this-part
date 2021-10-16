@@ -1,4 +1,4 @@
-# this pArt
+# [this pArt](https://this-part-demo.vercel.app/)
 
 - An app for users to share public art with the community
 - An app to (eventually) bring awareness to Art Education programs and recognize artists for their work.
@@ -21,9 +21,7 @@
 - [React](https://reactjs.org/) used on the Frontend w/some plain 'ol CSS.
 - [Mapbox](https://www.mapbox.com/) used for the map.
 - [Firebase](https://firebase.google.com/) used to authenticate and store users.
-
 - Deployed w/[Vercel](https://vercel.com/)
-- Deployed Site: [this pArt](https://this-part-demo.vercel.app/)
 
 ### Resouces:
 
