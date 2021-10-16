@@ -9,7 +9,7 @@
 - An authenticated User can create a Post of Photos on a map.
 - An authenticated User can view Photos on a map and in a gallery.
 
-#### For Future:
+#### For (Near) Future:
 
 - An unauthenticated User can view Photos on a map and in a gallery.
 - An authenticated User can Comment, "React", and (considering) Rate a Post.
