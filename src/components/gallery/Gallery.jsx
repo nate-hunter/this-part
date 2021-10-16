@@ -1,5 +1,5 @@
 import { useQuery } from '@apollo/client';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { GET_ALL_POSTS } from '../../graphql/queries';
 
 import './gallery.css'
