@@ -13,7 +13,11 @@ const Landing = () => {
                     <h1 className='landing-page-title'>- this pArt -</h1>
 
 
-                    <h2>Welcome <span className="landing-emphasis">{username}</span>!</h2>
+                    <h2>Welcome {' '}
+                        <Link to={`/${username}`}>
+                            <span className="landing-emphasis">{username}</span>!
+                        </Link>
+                    </h2>
 
                     <p>View public art pieces from around the world on a <span className="landing-emphasis">map</span> or explore the <span className="landing-emphasis">gallery</span> of public art pieces.</p>
 
