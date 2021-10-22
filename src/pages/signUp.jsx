@@ -18,6 +18,7 @@ const SignUp = () => {
         password: ''
     });
     const [errorMsg, setErrorMsg] = useState('');
+    const [errorMsgGoogle, setErrorMsgGoogle] = useState('');
     const history = useHistory();
 
     const handleChange = e => {
@@ -37,6 +38,16 @@ const SignUp = () => {
             history.push('/');
         } catch (error) {
             setErrorMsg(error.message);
+        }
+    }
+
+    const handleGoogleLogin = async () => {
+        try {
+            await signInWithGoogle();
+            setTimeout(() => history.push("/"), 100);
+        } catch (error) {
+            console.error(error);
+            setErrorMsgGoogle(error.mesage)
         }
     }
 
@@ -67,7 +78,8 @@ const SignUp = () => {
                 </form>
                 {errorMsg && <p style={{ color: 'red' }}>{errorMsg}</p>}
                 <p>- or -</p>
-                <button type="submit" className='loginGoogleBtn'>Signup w/Google</button>
+                <button type="submit" className='loginGoogleBtn' onClick={handleGoogleLogin}>Signin w/Google</button>
+                {errorMsgGoogle && <p style={{ color: 'red' }}>{errorMsgGoogle}</p>}
 
                 <div className="bot-container">
                     <span className="bot-text">Already signed up?</span>

@@ -59,6 +59,7 @@ const Login = () => {
             setErrorMsgGoogle(error.mesage)
         }
     }
+
     return (
         <>
             <SEO title='Login' />
