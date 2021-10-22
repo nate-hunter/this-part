@@ -61,8 +61,6 @@ function App() {
         <Route exact path='/:username' component={Profile} />
         <Route exact path='/p/:postId' component={post} />
         <Route path='/accounts/edit' component={editProfile} />
-        <Route path='/accounts/login' component={Login} />
-        {/* <Route path='/accounts/signup' component={SignUp} /> */}
         <Route path='*' component={notFound} />
       </Switch>
     </Context.Provider>

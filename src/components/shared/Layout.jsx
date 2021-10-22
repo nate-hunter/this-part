@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from './Seo';
 import TopBar from './TopBar';
+import Footer from './Footer';
 
 /*
  This component: 
@@ -9,22 +10,16 @@ import TopBar from './TopBar';
 */
 
 const Layout = ({ children, title }) => {
-    // I need to better understand how 'children' components are handled;
-
     return (
         <section>
             <SEO title={title} />
-            {/* Why is the SEO component here? */}
-
             <TopBar />
-
-            <main>
-                <section>
-                    <div>
-                        {children}
-                    </div>
-                </section>
-            </main>
+            <>
+                {children}
+            </>
+            {/* Styling of the footer needs to be improved before displaying
+            e.g., positioning + responsiveness */}
+            {/* <Footer /> */}
         </section>
     )
 }
