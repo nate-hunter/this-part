@@ -97,6 +97,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #282c34;
 }
 
 .landing-container {
@@ -104,9 +105,19 @@
   padding: 20px 30px;
 }
 
-.page-title {
+.landing-page-title {
   font-size: 3rem;
   color: #282c34;
+}
+
+.landing-emphasis {
+  color: slateblue;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+p > .landing-emphasis {
+  font-weight: bolder;
 }
 
 .landing-btns {
@@ -115,7 +126,7 @@
   justify-content: space-between;
 }
 
-button {
+.landing-btn {
   width: 120px;
   border: none;
   cursor: pointer;
@@ -129,12 +140,17 @@ button {
   /* box-shadow: 0 0.1rem 0.1rem 0.1rem rgba(44, 62, 80, 0.65); */
 }
 
-button:hover {
+/* button:hover {
+  background-color: rgba(149, 149, 249, 0.75);
+  color: #95f995;
+} */
+
+.landing-btn:hover {
   background-color: rgba(149, 149, 249, 0.75);
   color: #95f995;
 }
 
-button:active {
+.landing-btn:active {
   transform: translate(0, 0.5rem);
   box-shadow: inset 0.2rem -0.3rem rgba(249, 149, 149, 0.5);
 }

@@ -5,8 +5,7 @@ import './gallery.css';
 const GalleryPost = ({ post }) => {
 
     return (
-        <div className='galleryPostContainer'>
-
+        <div className='galleryItem'>
             <img src={post.img} alt='Post content' className='image' />
         </div>
     )

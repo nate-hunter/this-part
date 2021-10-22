@@ -10,7 +10,7 @@ import { ME } from './graphql/subscriptions';
 import About from './pages/about.jsx';
 import editProfile from './pages/editProfile.jsx';
 import gallery from './pages/gallery.jsx';
-import landing from './pages/landing.jsx';
+import Landing from './pages/landing.jsx';
 import Login from './pages/login.jsx';
 import MapPage from './pages/map.jsx';
 import notFound from './pages/notFound.jsx';
@@ -48,7 +48,7 @@ function App() {
   return (
     <Context.Provider value={{ me, currentUserId }}>
       <Switch>
-        <Route exact path="/" component={landing} />
+        <Route exact path="/" component={Landing} />
         <Route path="/gallery" component={gallery} />
         <Route path='/map' component={MapPage} />
         <Route path='/about' component={About} />

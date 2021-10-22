@@ -1,23 +1,28 @@
 .gallery {
-  display: grid;
-  grid-template-columns: minmax(auto, 935px);
-  width: 100vw;
+  display: flex;
+  justify-content: center;
 }
 
 .postContainer {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20;
-  /* background-color: whitesmoke; */
+  height: 100%;
+  width: 70%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
-.galleryPostContainer {
-  position: relative;
+.galleryItem {
+  display: flex;
+  justify-content: center;
+  height: 200px;
 }
 
 .image {
   max-width: 95%;
-  /* max-height: 300px; */
   user-select: none;
   margin: 2px;
+}
+
+.image:hover {
+  transform: scale(1.3);
 }
