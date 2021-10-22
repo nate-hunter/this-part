@@ -35,6 +35,12 @@ function App() {
   const me = isAuth && data ? data.users[0] : null;
   const currentUserId = data && me.id;
 
+  if (loading) return (
+    <div>
+      <h2 style={{ textAlign: 'center' }}>Loading...</h2>
+    </div>
+  );
+
   if (!isAuth) {
     return (
       <Switch>

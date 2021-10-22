@@ -18,6 +18,7 @@
 }
 
 .image {
+  flex-grow: 1;
   max-width: 95%;
   user-select: none;
   margin: 2px;
