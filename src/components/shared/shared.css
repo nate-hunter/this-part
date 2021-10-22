@@ -41,6 +41,11 @@
   align-items: center;
 }
 
+.topBarItem:hover {
+  color: #95f995;
+  border-bottom: 1px solid #95f995;
+}
+
 .topBarItem,
 .topBarAuthItem {
   margin-left: 15px;
@@ -48,9 +53,6 @@
 }
 
 .user-in {
-  /* color: yellow; */
-  /* color: #c2fef7; */
-  /* color: lightseagreen; */
   color: rgb(180, 172, 241);
   font-size: 22px;
   font-weight: bold;

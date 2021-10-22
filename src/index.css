@@ -12,6 +12,22 @@ h3 {
   font-family: "Lalezar", cursive;
 }
 
+.color-pallette {
+  color: #282c34;
+  color: #2c3e50;
+  color: slateblue;
+  color: #c795f9;
+  color: #9595f9;
+  color: rgb(180, 172, 241);
+  color: #f99595;
+  color: #f66565;
+  color: #c7f995;
+  color: #95f995;
+  color: lightseagreen;
+  color: #95f9f9;
+  color: #c2fef7;
+}
+
 /* * {
   font-family: "Lalezar", cursive;
   font-family: 'Open Sans', sans-serif;
