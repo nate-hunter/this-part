@@ -1,7 +1,7 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 
-// Add keywords +/or metadata?
+// Add keywords +/or metadata? (with Helmet)
 
 const SEO = ({ title }) => {
 

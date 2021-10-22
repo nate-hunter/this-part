@@ -17,9 +17,11 @@ const Layout = ({ children, title }) => {
             <>
                 {children}
             </>
+
             {/* Styling of the footer needs to be improved before displaying
-            e.g., positioning + responsiveness */}
+              **  e.g., positioning + responsiveness */}
             {/* <Footer /> */}
+
         </section>
     )
 }
