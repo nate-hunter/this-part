@@ -3,8 +3,8 @@ import { Link, useHistory } from 'react-router-dom';
 import { UserContext } from '../../App';
 import { AuthContext } from '../../auth';
 import Context from '../../context';
-import './shared.css';
-// import './topbar.css';
+// import './shared.css';
+import './respTopbar.css';
 
 
 /* This horizontal top navbar will contain:
@@ -14,12 +14,11 @@ import './shared.css';
     - An animated loading bar at the top using '@tanem/react-nprogress'
     - Notifications  (if/when Notifications are set up)
 */
-const TopBar = () => {
+const RespTopBar = () => {
     const { signOut } = useContext(AuthContext);
     const { me } = useContext(Context);
     const history = useHistory();
     let user = me;
-    // console.log(user)
 
     const handleLogout = () => {
         setTimeout(() => {
@@ -45,10 +44,7 @@ const TopBar = () => {
                         <span className='topBarItem'>About</span>
                     </Link>
                 </div>
-                {/* <div className="topCenter"> */}
-                {/* <span className="header-sub-txt">( kēia version )</span> */}
-                {/* <span className="header-sub-txt">[ <em>sandbox</em> ]</span> */}
-                {/* </div> */}
+
                 <div className="topRight">
                     {user ? (
                         <>
@@ -56,7 +52,6 @@ const TopBar = () => {
                             <Link to={`/${user.username}`} className='link'>
                                 <span className='topBarAuthItem user-in'>{user.username}</span>
                             </Link>
-                            {/* <span className='topBarAuthItem'>{user.username}'s avatar</span> */}
                         </>
                     ) :
                         <>
@@ -70,4 +65,4 @@ const TopBar = () => {
     )
 }
 
-export default TopBar;
+export default RespTopBar;

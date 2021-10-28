@@ -1,6 +1,7 @@
 import React from 'react';
 import SEO from './Seo';
 import TopBar from './TopBar';
+import RespTopBar from './RespTopBar';
 import Footer from './Footer';
 
 /*
@@ -13,7 +14,8 @@ const Layout = ({ children, title }) => {
     return (
         <section>
             <SEO title={title} />
-            <TopBar />
+            {/* <TopBar /> */}
+            <RespTopBar />
             <>
                 {children}
             </>
