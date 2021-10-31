@@ -11,12 +11,12 @@ import About from './pages/about.jsx';
 import editProfile from './pages/editProfile.jsx';
 import gallery from './pages/gallery.jsx';
 import Landing from './pages/landing.jsx';
-import Login from './pages/login.jsx';
+import LoginPage from './pages/login.jsx';
 import MapPage from './pages/map.jsx';
 import notFound from './pages/notFound.jsx';
 import post from './pages/post.jsx';
 import Profile from './pages/profile.jsx';
-import SignUp from './pages/signUp.jsx';
+import SignupPage from './pages/signup.jsx';
 
 
 // export const UserContext = createContext();  // Should this be placed in a separate 'context' file?
@@ -44,8 +44,8 @@ function App() {
   if (!isAuth) {
     return (
       <Switch>
-        <Route path='/accounts/login' component={Login} />
-        <Route path='/accounts/signup' component={SignUp} />
+        <Route path='/accounts/login' component={LoginPage} />
+        <Route path='/accounts/signup' component={SignupPage} />
         <Redirect to='/accounts/login' />
       </Switch>
     )
