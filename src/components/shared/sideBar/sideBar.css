@@ -110,7 +110,7 @@
 /* Large Screens */
 @media only screen and (min-width: 600px) {
   .navbar {
-    height: 100vh;
+    height: calc(100vh - 50px);
     /* top: 0; */
     width: 5rem;
   }
