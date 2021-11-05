@@ -7,46 +7,40 @@
   top: 0;
 }
 
-/* .topbarWrapper {
-  height: 100%;
-  padding: 0px 20px;
+.topbar-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
-} */
-
-.topbarWrapper {
-  display: block;
+  height: 100%;
+  padding: 0px 20px;
 }
 
-/* .logo {
+.logo {
   font-weight: bold;
-  font-size: 30px;
+  font-size: 2rem;
   font-family: "Lalezar", cursive;
   text-decoration: none;
-} */
+}
 
-/* .topRight {
-  display: flex;
-  align-items: center;
-} */
+.auth-item {
+  margin-left: 15px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
 
-/* .topBarItem:hover {
+.auth-item:hover {
   color: #95f995;
   border-bottom: 1px solid #95f995;
-} */
+}
 
-/* .topBarItem,
-.topBarAuthItem {
-  margin-left: 15px;
-  cursor: pointer;
-} */
-
-/* .user-in {
+.user-in {
   color: rgb(180, 172, 241);
-  font-size: 22px;
   font-weight: bold;
-} */
+}
 
-@media screen and (min-width: 600px) {
+@media only screen and (max-width: 600px) {
+  .user-in,
+  .auth-item {
+    font-size: 1rem;
+  }
 }

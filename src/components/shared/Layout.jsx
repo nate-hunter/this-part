@@ -1,9 +1,8 @@
 import React from 'react';
 import SEO from './Seo';
-import TopBar from './TopBar';
-import RespTopBar from './RespTopBar';
-import Footer from './Footer';
-
+import TopBar from './topBar/TopBar';
+import SideBar from './sideBar/SideBar';
+import './layout.css'
 /*
  This component: 
  - contains the shared header 
@@ -14,16 +13,11 @@ const Layout = ({ children, title }) => {
     return (
         <section>
             <SEO title={title} />
-            {/* <TopBar /> */}
-            <RespTopBar />
-            <>
+            <TopBar />
+            <SideBar />
+            <main>
                 {children}
-            </>
-
-            {/* Styling of the footer needs to be improved before displaying
-              **  e.g., positioning + responsiveness */}
-            {/* <Footer /> */}
-
+            </main>
         </section>
     )
 }

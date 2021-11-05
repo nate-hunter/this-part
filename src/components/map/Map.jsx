@@ -109,9 +109,11 @@ const Map = () => {
     // console.log('new post:', newPost)
 
     return (
-        <>
+        <div className="map">
+
             <ReactMapGL
                 width="100vw"
+                // width="100%"
                 height="100vh"
                 mapStyle="mapbox://styles/mapbox/light-v10"
                 mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_TOKEN}
@@ -231,7 +233,7 @@ const Map = () => {
 
 
             </ReactMapGL>
-        </>
+        </div>
     )
 }
 
