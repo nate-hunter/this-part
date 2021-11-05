@@ -106,15 +106,13 @@ const Map = () => {
         console.log('form submitted:', variables)
     }
 
-    // console.log('new post:', newPost)
-
     return (
         <div className="map">
 
             <ReactMapGL
                 width="100vw"
                 // width="100%"
-                height="100vh"
+                height="calc(100vh - 8rem)" // not sure exactly why this 8rem works at the moment.. it's too late in the night/morning to investigate...
                 mapStyle="mapbox://styles/mapbox/light-v10"
                 mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_API_TOKEN}
                 onViewportChange={newViewport => setViewport(newViewport)}
