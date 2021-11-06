@@ -1,5 +1,4 @@
 import { useQuery } from '@apollo/client';
-import React, { useEffect } from 'react';
 import { GET_ALL_POSTS } from '../../graphql/queries';
 
 import './gallery.css'
@@ -10,6 +9,7 @@ const Gallery = () => {
     // I'm thinking of making a specific query for the Gallery...
 
     if (loading) return <h3>Gallery loading...</h3>
+    if (error) return <h3 style={{ color: 'red' }}>Error: {error}</h3>
 
 
     const galleryPosts = data.posts.map(post => (

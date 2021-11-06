@@ -231,6 +231,7 @@ const Map = () => {
 
 
             </ReactMapGL>
+            <div className='map-bottom'></div>
         </div>
     )
 }
