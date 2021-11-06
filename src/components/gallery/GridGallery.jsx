@@ -2,6 +2,7 @@ import { useQuery } from '@apollo/client';
 import { GET_ALL_POSTS } from '../../graphql/queries';
 import './gridGallery.css';
 import { defaultPublicArtUrls } from '../../data/data';
+import GridGalleryPost from './GridGalleryPost';
 
 
 const GridGallery = () => {
@@ -14,14 +15,19 @@ const GridGallery = () => {
     console.log('data:', data)
 
 
-    const displayPhotos = defaultPublicArtUrls.map(obj => {
-        // const displayPhotos = data.posts.map(obj => {
-        return (
-            <div className="gallery-card" style={{ backgroundImage: `url(${obj.img})` }}>
-                <span className="card-title">{obj.title}</span>
-            </div>
-        )
-    });
+    // const displayPhotos = defaultPublicArtUrls.map(obj => {
+    //     // const displayPhotos = data.posts.map(obj => {
+    //     return (
+    //         <div className="gallery-card" style={{ backgroundImage: `url(${obj.img})` }}>
+    //             <span className="card-title">{obj.title}</span>
+    //         </div>
+    //     )
+    // });
+
+    const displayPhotos = defaultPublicArtUrls.map(post => (
+        <GridGalleryPost key={post.id} post={post} />
+    )
+    );
 
     return (
         <>
